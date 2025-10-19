@@ -1,0 +1,36 @@
+digraph "ICFG" {
+	label="ICFG";
+
+	Node0x55aec2f2c810 [shape=record,color=purple,label="{GlobalICFGNode0\nCopyStmt: [Var1 \<-- Var0]  \nConstNullPtrValVar ID: 0\n ptr null \{ constant data \}\nAddrStmt: [Var9 \<-- Var3]  \nConstIntValVar ID: 9\n i32 1 \{ constant data \}\nAddrStmt: [Var13 \<-- Var3]  \nConstIntValVar ID: 13\n i32 0 \{ constant data \}\nAddrStmt: [Var19 \<-- Var3]  \nConstIntValVar ID: 19\n i32 100 \{ constant data \}\nAddrStmt: [Var4 \<-- Var5]  \nFunValVar ID: 4\nmain}"];
+	Node0x55aec2f2c810 -> Node0x55aec2f5b810[style=solid];
+	Node0x55aec2f5b810 [shape=record,color=yellow,label="{FunEntryICFGNode1 \{fun: main\}}"];
+	Node0x55aec2f5b810 -> Node0x55aec2f775d0[style=solid];
+	Node0x55aec2f6a4b0 [shape=record,color=green,label="{FunExitICFGNode2 \{fun: main\}\nPhiStmt: [Var6 \<-- ([Var13, ICFGNode12],)]  \nValVar ID: 25\n   ret i32 0 }"];
+	Node0x55aec2f775d0 [shape=record,color=black,label="{IntraICFGNode3 \{fun: main\}\nAddrStmt: [Var7 \<-- Var8]  \nValVar ID: 7\n   %1 = alloca i32, align 4 }"];
+	Node0x55aec2f775d0 -> Node0x55aec2f3eb20[style=solid];
+	Node0x55aec2f3eb20 [shape=record,color=black,label="{IntraICFGNode4 \{fun: main\}\nAddrStmt: [Var10 \<-- Var11]  \nValVar ID: 10\n   %2 = alloca i32, align 4 }"];
+	Node0x55aec2f3eb20 -> Node0x55aec2f6fab0[style=solid];
+	Node0x55aec2f6fab0 [shape=record,color=black,label="{IntraICFGNode5 \{fun: main\}\nStoreStmt: [Var7 \<-- Var13]  \nValVar ID: 12\n   store i32 0, ptr %1, align 4 }"];
+	Node0x55aec2f6fab0 -> Node0x55aec2f02950[style=solid];
+	Node0x55aec2f02950 [shape=record,color=black,label="{IntraICFGNode6 \{fun: main\}\nStoreStmt: [Var10 \<-- Var13]  \nValVar ID: 14\n   store i32 0, ptr %2, align 4 }"];
+	Node0x55aec2f02950 -> Node0x55aec2f0e370[style=solid];
+	Node0x55aec2f0e370 [shape=record,color=black,label="{IntraICFGNode7 \{fun: main\}\nBranchStmt: [ Unconditional branch]\nSuccessor 0 ICFGNode8   \nValVar ID: 15\n   br label %3 }"];
+	Node0x55aec2f0e370 -> Node0x55aec2f41fd0[style=solid];
+	Node0x55aec2f41fd0 [shape=record,color=black,label="{IntraICFGNode8 \{fun: main\}\nLoadStmt: [Var17 \<-- Var10]  \nValVar ID: 17\n   %4 = load i32, ptr %2, align 4 }"];
+	Node0x55aec2f41fd0 -> Node0x55aec2f42140[style=solid];
+	Node0x55aec2f42140 [shape=record,color=black,label="{IntraICFGNode9 \{fun: main\}\nCmpStmt: [Var18 \<-- (Var17 predicate40 Var19)]  \nValVar ID: 18\n   %5 = icmp slt i32 %4, 100 }"];
+	Node0x55aec2f42140 -> Node0x55aec2f422b0[style=solid];
+	Node0x55aec2f422b0 [shape=record,color=black,label="{IntraICFGNode10 \{fun: main\}\nBranchStmt: [Condition Var18]\nSuccessor 0 ICFGNode11   Successor 1 ICFGNode12   \nValVar ID: 20\n   br i1 %5, label %6, label %9 }"];
+	Node0x55aec2f422b0 -> Node0x55aec2f428f0[style=solid];
+	Node0x55aec2f422b0 -> Node0x55aec2f0d590[style=solid];
+	Node0x55aec2f428f0 [shape=record,color=black,label="{IntraICFGNode11 \{fun: main\}\nLoadStmt: [Var21 \<-- Var10]  \nValVar ID: 21\n   %7 = load i32, ptr %2, align 4 }"];
+	Node0x55aec2f428f0 -> Node0x55aec2f2a8d0[style=solid];
+	Node0x55aec2f0d590 [shape=record,color=black,label="{IntraICFGNode12 \{fun: main\}\n   ret i32 0 }"];
+	Node0x55aec2f0d590 -> Node0x55aec2f6a4b0[style=solid];
+	Node0x55aec2f2a8d0 [shape=record,color=black,label="{IntraICFGNode13 \{fun: main\}\nBinaryOPStmt: [Var22 \<-- (Var21 opcode13 Var9)]  \nValVar ID: 22\n   %8 = add nsw i32 %7, 1 }"];
+	Node0x55aec2f2a8d0 -> Node0x55aec2f19f40[style=solid];
+	Node0x55aec2f19f40 [shape=record,color=black,label="{IntraICFGNode14 \{fun: main\}\nStoreStmt: [Var10 \<-- Var22]  \nValVar ID: 23\n   store i32 %8, ptr %2, align 4 }"];
+	Node0x55aec2f19f40 -> Node0x55aec2f14910[style=solid];
+	Node0x55aec2f14910 [shape=record,color=black,label="{IntraICFGNode15 \{fun: main\}\nBranchStmt: [ Unconditional branch]\nSuccessor 0 ICFGNode8   \nValVar ID: 24\n   br label %3, !llvm.loop !6 }"];
+	Node0x55aec2f14910 -> Node0x55aec2f41fd0[style=solid];
+}

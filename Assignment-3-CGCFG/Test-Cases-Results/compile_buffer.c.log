@@ -1,0 +1,8 @@
+./Test-Cases/buffer.c:13:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+   13 | void main() {
+      | ^
+./Test-Cases/buffer.c:13:1: note: change return type to 'int'
+   13 | void main() {
+      | ^~~~
+      | int
+1 warning generated.
