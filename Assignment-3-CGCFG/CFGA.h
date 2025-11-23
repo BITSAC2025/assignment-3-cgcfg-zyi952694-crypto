@@ -23,6 +23,7 @@ protected:
     std::set<unsigned> sources;
     std::set<unsigned> sinks;
     std::set<std::vector<unsigned>> reachablePaths;
+    void dfs(unsigned src, unsigned snk, SVF::ICFG *icfg,std::set<unsigned> &visited,std::vector<unsigned> &path);
 };
 
 #endif //ANSWERS_ICFG_H

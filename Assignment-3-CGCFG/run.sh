@@ -7,7 +7,8 @@ TEST_CASES_DIR="./Test-Cases"               # .c测试用例目录
 BITCODE_DIR="./Test-Cases-BC"               # 生成的.bc文件存放目录
 RESULT_DIR="./Test-Cases-Results"           # 分析结果存放目录（含图片）
 CFGA_BIN="./cfga"                           # cfga可执行文件路径
-SVF_LIB_DIR="$HOME/SVF/Debug-build/lib"     # SVF共享库目录（根据实际修改）
+SVF_LIB_DIR=/home/zyl94/SVF/Release-build/lib    # SVF共享库目录（根据实际修改）
+LD_LIBRARY_PATH=$SVF_LIB_DIR:$LD_LIBRARY_PATH
 # ==============================================
 
 # 颜色输出定义
